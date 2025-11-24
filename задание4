@@ -1,0 +1,31 @@
+# Ввод данных
+col1 = int(input("Введите номер столбца первой клетки: "))
+row1 = int(input("Введите номер строки первой клетки: "))
+col2 = int(input("Введите номер столбца второй клетки: "))
+row2 = int(input("Введите номер строки второй клетки: "))
+
+# Константы для границ шахматной доски
+min_position = 1
+max_position = 8
+
+# Проверка корректности ввода
+if not (min_position <= col1 <= max_position and
+        min_position <= row1 <= max_position and
+        min_position <= col2 <= max_position and
+        min_position <= row2 <= max_position):
+    print("Ошибка: все координаты должны быть в диапазоне от 1 до 8")
+else:
+    # Проверка, являются ли клетки разными
+    if col1 == col2 and row1 == row2:
+        print("NO")
+    else:
+        # Слон ходит по диагоналям, поэтому разность по горизонтали и вертикали должна быть одинаковой
+        # по значению модуля
+        delta_col = abs(col1 - col2)
+        delta_row = abs(row1 - row2)
+        
+        # Если разности равны, значит клетки находятся на одной диагонали
+        if delta_col == delta_row:
+            print("YES")
+        else:
+            print("NO")
