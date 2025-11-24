@@ -1,0 +1,36 @@
+# Константы для границ диапазона
+min_pocket = 0
+max_pocket = 36
+
+# Цвета
+green = "зеленый"
+red = "красный"
+black = "черный"
+error_message = "ошибка ввода"
+
+# Считываем номер кармана
+pocket_number = int(input())
+
+# Проверяем корректность ввода
+if pocket_number < min_pocket or pocket_number > max_pocket:
+    print(error_message)
+else:
+    # Определяем цвет кармана
+    if pocket_number == 0:
+        # Карман 0 всегда зеленый
+        color = green
+    elif 1 <= pocket_number <= 10:
+        # Для 1-10: нечетные - красные, четные - черные
+        color = red if pocket_number % 2 != 0 else black
+    elif 11 <= pocket_number <= 18:
+        # Для 11-18: нечетные - черные, четные - красные
+        color = black if pocket_number % 2 != 0 else red
+    elif 19 <= pocket_number <= 28:
+        # Для 19-28: нечетные - красные, четные - черные
+        color = red if pocket_number % 2 != 0 else black
+    else:  # 29-36
+        # Для 29-36: нечетные - черные, четные - красные
+        color = black if pocket_number % 2 != 0 else red
+    
+    # Выводим результат
+    print(color)
