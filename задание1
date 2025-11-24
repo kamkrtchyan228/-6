@@ -1,0 +1,17 @@
+print("=== Диагностика здоровья ===")
+
+try:
+    temperature = float(input("Введите температуру: "))
+    pressure = int(input("Введите давление: "))
+    pulse = int(input("Введите пульс: "))
+    
+    # Анализ
+    if 36 <= temperature <= 37 and 110 <= pressure <= 130 and 60 <= pulse <= 100:
+        print("Результат: Нормальное состояние")
+    elif 35 <= temperature <= 38 and 105 <= pressure <= 140 and 55 <= pulse <= 110:
+        print("Результат: Легкое недомогание")
+    else:
+        print("Результат: Требуется врач")
+        
+except ValueError:
+    print("Ошибка: Введены некорректные данные")
