@@ -1,0 +1,46 @@
+# Константы для размеров шахматной доски
+min_position = 1
+max_position = 8
+
+def get_cell_color(column, row):
+    """
+    Определяет цвет клетки шахматной доски.
+    Возвращает True для черных клеток, False для белых.
+    """
+    # Клетка белая, если сумма координат четная
+    return (column + row) % 2 == 0
+
+def main():
+    try:
+        # Ввод координат для первой клетки
+        col1 = int(input("Введите номер столбца первой клетки: "))
+        row1 = int(input("Введите номер строки первой клетки: "))
+        
+        # Ввод координат для второй клетки
+        col2 = int(input("Введите номер столбца второй клетки: "))
+        row2 = int(input("Введите номер строки второй клетки: "))
+        
+        # Проверка корректности ввода
+        if not (min_position <= col1 <= max_position and 
+                min_position <= row1 <= max_position and
+                min_position <= col2 <= max_position and 
+                min_position <= row2 <= max_position):
+            print("Ошибка: все координаты должны быть в диапазоне от 1 до 8")
+            return
+        
+        # Определение цветов клеток
+        color1 = get_cell_color(col1, row1)
+        color2 = get_cell_color(col2, row2)
+        
+        # Проверка одинаковости цветов
+        if color1 == color2:
+            print("YES")
+        else:
+            print("NO")
+            
+    except ValueError:
+        print("Ошибка: введите целые числа от 1 до 8")
+
+# Запуск программы
+if __name__ == "__main__":
+    main()
